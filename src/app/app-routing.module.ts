@@ -1,23 +1,34 @@
 import { NgModule } from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
+import { FileType, MfeUtil } from 'projects/utils/src/lib/mfe.utils';
+
+
+export const mef = new MfeUtil();
+
 
 const routes: Routes = [
   {
-    path: 'home',
-
+    path: '',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
   },
   {
     path: 'restaurants',
-    loadChildren: () => import('./pages/restaurant/restaurant.module').then(m =>  m.RestaurantModule),
+	loadChildren: () => mef.loadRemoteFile({
+	  remoteName: "restaurant",
+	  remoteEntry: `http://localhost:4204/remoteRestaurant.js`,
+	  exposedFile: "RestaurantModule",
+	  exposeFileType: FileType.Module
+    }).then((m) => m.RestaurantModule),
   },
   {
     path: 'order',
-    loadChildren: () => import('./pages/order/order.module').then(m => m.OrderModule),
+	loadChildren: () => mef.loadRemoteFile({
+	  remoteName: "orders",
+	  remoteEntry: `http://localhost:4205/remoteOrders.js`,
+	  exposedFile: "OrderModule",
+	  exposeFileType: FileType.Module
+	}).then((m) => m.OrderModule),
   },
-  {
-    path: '', redirectTo: 'home', pathMatch: 'full'
-  }
 ];
 
 @NgModule({

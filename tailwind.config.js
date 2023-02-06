@@ -3,6 +3,8 @@ module.exports = {
   mode: 'jit',
   content: [
     './src/**/*.{html,ts}',
+    './projects/app2-restaurant/src/**/*.{html,ts}',
+    './projects/app3-orders/src/**/*.{html,ts}'
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {

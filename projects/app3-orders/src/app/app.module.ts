@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { UtilsModule } from 'projects/utils/src/public-api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {CoreModule} from "./core/core.module";
-import {ReactiveFormsModule} from "@angular/forms";
-import { UtilsModule } from 'projects/utils/src/public-api';
 
 @NgModule({
   declarations: [
@@ -13,9 +11,7 @@ import { UtilsModule } from 'projects/utils/src/public-api';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    CoreModule,UtilsModule
+    AppRoutingModule,UtilsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from '../../../projects/utils/src/lib/header/header.component';
 import {RouterModule} from "@angular/router";
 
 const HEADER_COMPONENT = [HeaderComponent]
